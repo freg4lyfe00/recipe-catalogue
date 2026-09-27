@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; width: 230px; padding: 1rem; margin: 0; }
+  h2 { font-size: .95rem; font-weight: 700; margin: 0 0 .3rem; }
+  p { font-size: .78rem; color: #666; margin: 0 0 .85rem; line-height: 1.45; }
+  .btn { width: 100%; padding: .52rem; border: none; border-radius: 7px; font-size: .85rem; font-weight: 600; cursor: pointer; font-family: inherit; margin-bottom: .4rem; }
+  .btn:disabled { opacity: .55; cursor: default; }
+  #go  { background: #c0735a; color: white; }
+  #go:hover:not(:disabled)  { background: #a85d47; }
+  #save { background: #f5ede9; color: #c0735a; }
+  #save:hover:not(:disabled) { background: #ead9d3; }
+  #err { font-size: .72rem; color: #b91c1c; margin-top: .3rem; line-height: 1.4; display: none; background: #fee2e2; border-radius: 5px; padding: .4rem .55rem; }
+</style>
+</head>
+<body>
+<h2>📖 Recipe Cleaner</h2>
+<p>Strip ads and clutter, or save the recipe to your catalogue.</p>
+<button class="btn" id="go">View Recipe</button>
+<button class="btn" id="save">Save to Catalogue</button>
+<div id="err"></div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 // Path to your recipe catalogue — update this if you move recipes.html
-const CATALOGUE_URL = 'file:///Users/naonao/recipes.html';
+const CATALOGUE_URL = 'https://recipe-catalogue-lyart.vercel.app';
 
 // ── Self-contained extraction function injected into the recipe page ──────────
 // Must not reference any variables outside itself.

@@ -71,6 +71,19 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
 .empty { text-align: center; padding: 4rem 1rem; color: var(--muted); }
 .empty strong { display: block; font-size: 1rem; color: var(--text); margin-bottom: 0.3rem; }
 
+/* Category pills */
+.cat-pill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: .4rem; }
+.cat-pill-row .form-label { margin: 0; }
+.cat-pills { display: flex; flex-wrap: wrap; gap: .35rem; min-height: 30px; }
+.cat-pill { display: inline-flex; align-items: center; gap: .2rem; padding: .3rem .72rem; border-radius: 20px; font-size: .78rem; font-weight: 600; cursor: pointer; border: 1.5px solid var(--border); background: var(--bg); color: var(--muted); transition: border-color .12s, background .12s, color .12s; user-select: none; white-space: nowrap; }
+.cat-pill:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+.cat-pill.active { color: white; border-color: transparent; }
+.cat-pill-x { font-size: .68rem; margin-left: .15rem; opacity: .75; display: none; line-height: 1; }
+.cat-pills.editing .cat-pill-x { display: inline; }
+.cat-pills.editing .cat-pill:hover .cat-pill-x { opacity: 1; }
+.cat-pill-add { border-style: dashed; font-weight: 500; }
+.cat-pill-edit-input { font-size: .78rem; padding: .3rem .65rem; border: 1.5px solid var(--accent); border-radius: 20px; font-family: inherit; outline: none; background: white; color: var(--text); min-width: 100px; }
+
 /* Inline category edit (detail view) */
 .cat-inline { display: inline-flex; align-items: center; gap: 0.3rem; }
 .cat-inline-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; padding: 0.18rem 0.55rem; border-radius: 5px; cursor: pointer; transition: filter 0.12s; }
@@ -320,8 +333,12 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">Category</label>
-        <input class="form-input" id="fCategory" list="catList" placeholder="e.g. Baking, Dinner…">
+        <div class="cat-pill-row">
+          <label class="form-label">Category</label>
+          <button type="button" class="btn btn-ghost btn-sm" id="editCatsBtn" style="padding:.15rem .5rem;font-size:.75rem">Edit</button>
+        </div>
+        <div class="cat-pills" id="catPills"></div>
+        <input type="hidden" id="fCategory">
         <datalist id="catList"></datalist>
       </div>
       <div class="form-group">
@@ -830,6 +847,115 @@ let currentEdit = null; // null = new, id = editing
 let currentDetail = null;
 let detailServings = 4;
 
+// ─── Category storage ─────────────────────────────────────────────────────────
+const CATS_KEY = 'recipe_cats_v1';
+function loadCats() {
+  const stored = JSON.parse(localStorage.getItem(CATS_KEY) || '[]');
+  // Merge with any categories that exist on recipes but aren't in the list
+  const fromRecipes = [...new Set(recipes.map(r => r.category).filter(Boolean))];
+  const merged = [...new Set([...stored, ...fromRecipes])];
+  return merged;
+}
+function saveCats(cats) { localStorage.setItem(CATS_KEY, JSON.stringify(cats)); }
+
+// ─── Category pills ───────────────────────────────────────────────────────────
+let activeCat = '';       // currently selected category in the edit form
+let catsEditing = false;  // whether pill edit-mode is on
+
+function renderCatPills() {
+  const cats = loadCats();
+  const container = document.getElementById('catPills');
+  if (!container) return;
+  container.innerHTML = '';
+  container.classList.toggle('editing', catsEditing);
+
+  cats.forEach(cat => {
+    const col = catColor(cat);
+    const pill = document.createElement('span');
+    pill.className = 'cat-pill' + (cat === activeCat ? ' active' : '');
+    if (cat === activeCat) pill.style.background = col.border;
+    else { pill.style.borderColor = col.border; pill.style.color = col.text; pill.style.background = col.bg; }
+
+    const label = document.createElement('span');
+    label.textContent = cat;
+    pill.appendChild(label);
+
+    const x = document.createElement('span');
+    x.className = 'cat-pill-x';
+    x.textContent = '✕';
+    x.title = 'Delete category';
+    pill.appendChild(x);
+
+    if (catsEditing) {
+      // Click label to rename
+      label.style.cursor = 'text';
+      label.addEventListener('click', e => {
+        e.stopPropagation();
+        const input = document.createElement('input');
+        input.className = 'cat-pill-edit-input';
+        input.value = cat;
+        pill.replaceWith(input);
+        input.focus(); input.select();
+        function commit() {
+          const val = input.value.trim();
+          if (val && val !== cat) {
+            const cats = loadCats();
+            const idx = cats.indexOf(cat);
+            if (idx >= 0) cats[idx] = val;
+            saveCats(cats);
+            recipes.forEach(r => { if (r.category === cat) r.category = val; });
+            save(recipes);
+            if (activeCat === cat) { activeCat = val; document.getElementById('fCategory').value = val; }
+          }
+          renderCatPills();
+        }
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } if (e.key === 'Escape') renderCatPills(); }, { once: true });
+        input.addEventListener('blur', commit, { once: true });
+      });
+      // Click X to delete
+      x.addEventListener('click', e => {
+        e.stopPropagation();
+        const updated = loadCats().filter(c => c !== cat);
+        saveCats(updated);
+        if (activeCat === cat) { activeCat = ''; document.getElementById('fCategory').value = ''; }
+        renderCatPills();
+      });
+    } else {
+      pill.addEventListener('click', () => {
+        activeCat = activeCat === cat ? '' : cat;
+        document.getElementById('fCategory').value = activeCat;
+        renderCatPills();
+      });
+    }
+    container.appendChild(pill);
+  });
+
+  // "+ New" pill
+  const addPill = document.createElement('span');
+  addPill.className = 'cat-pill cat-pill-add';
+  addPill.textContent = '+ New';
+  addPill.addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.className = 'cat-pill-edit-input';
+    input.placeholder = 'Category name…';
+    addPill.replaceWith(input);
+    input.focus();
+    function commit() {
+      const val = input.value.trim();
+      if (val) {
+        const cats = loadCats();
+        if (!cats.includes(val)) { cats.push(val); saveCats(cats); }
+        activeCat = val;
+        document.getElementById('fCategory').value = val;
+      }
+      renderCatPills();
+    }
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } if (e.key === 'Escape') renderCatPills(); }, { once: true });
+    input.addEventListener('blur', commit, { once: true });
+  });
+  container.appendChild(addPill);
+}
+
 // ─── Toast ────────────────────────────────────────────────────────────────────
 let toastTimer;
 function toast(msg) {
@@ -1022,11 +1148,12 @@ function setImagePreview(url) {
 function clearEditForm() {
   document.getElementById('fName').value = '';
   document.getElementById('fServings').value = '';
-  document.getElementById('fCategory').value = '';
+  document.getElementById('fImage').value = '';
   document.getElementById('fSource').value = '';
   document.getElementById('fNotes').value = '';
-  document.getElementById('fImage').value = '';
   setImagePreview('');
+  activeCat = ''; document.getElementById('fCategory').value = '';
+  catsEditing = false; renderCatPills();
   document.getElementById('urlInput').value = '';
   document.getElementById('pasteInput').value = '';
   document.getElementById('textInput').value = '';
@@ -1042,11 +1169,12 @@ function clearEditForm() {
 function populateEditForm(r) {
   document.getElementById('fName').value = r.name || '';
   document.getElementById('fServings').value = r.servings || '';
-  document.getElementById('fCategory').value = r.category || '';
   document.getElementById('fSource').value = r.source || '';
   document.getElementById('fNotes').value = r.notes || '';
   document.getElementById('fImage').value = r.image || '';
   setImagePreview(r.image || '');
+  activeCat = r.category || ''; document.getElementById('fCategory').value = activeCat;
+  catsEditing = false; renderCatPills();
   renderIngBuilder(r.ingredients || []);
   renderStepBuilder(r.instructions || []);
 }
@@ -1320,12 +1448,19 @@ document.getElementById('parseTextBtn').addEventListener('click', () => {
 function applyImport(data) {
   if (data.name) document.getElementById('fName').value = data.name;
   if (data.servings) document.getElementById('fServings').value = data.servings;
-  if (data.category) document.getElementById('fCategory').value = data.category;
   if (data.source) document.getElementById('fSource').value = data.source;
   if (data.notes) document.getElementById('fNotes').value = data.notes;
   const img = data.image || '';
   document.getElementById('fImage').value = img;
   setImagePreview(img);
+  // Add imported category to the list and select it
+  if (data.category) {
+    const cats = loadCats();
+    if (!cats.includes(data.category)) { cats.push(data.category); saveCats(cats); }
+    activeCat = data.category;
+  } else { activeCat = ''; }
+  document.getElementById('fCategory').value = activeCat;
+  catsEditing = false; renderCatPills();
   renderIngBuilder(data.ingredients || []);
   renderStepBuilder(data.instructions || []);
 }
@@ -1435,6 +1570,12 @@ function resizeImage(file, maxW, maxH, quality) {
     img.src = url;
   });
 }
+
+document.getElementById('editCatsBtn').addEventListener('click', () => {
+  catsEditing = !catsEditing;
+  document.getElementById('editCatsBtn').textContent = catsEditing ? 'Done' : 'Edit';
+  renderCatPills();
+});
 
 document.getElementById('addBtn').addEventListener('click', openAdd);
 document.getElementById('backFromEdit').addEventListener('click', () => { showView('viewList'); renderList(); });

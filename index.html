@@ -560,7 +560,7 @@ function parseIngredientStr(str) {
   }
   // Extract unit
   for (const u of UNIT_LIST) {
-    const re = new RegExp(`^${u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}s?\\.?\\s*`, 'i');
+    const re = new RegExp(`^${u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}s?\\.?(?!\\w)\\s*`, 'i');
     if (re.test(name)) {
       unit = u.toLowerCase();
       name = name.replace(re, '').trim();
@@ -1552,7 +1552,7 @@ function _bmlFn() {
     if(qm){qty=frac(qm[1]);name=s.slice(qm[1].length).trim();}
     for(var i=0;i<UL.length;i++){
       var u=UL[i];
-      var re=new RegExp('^'+u.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'s?\\.?\\s*','i');
+      var re=new RegExp('^'+u.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'s?\\.?(?!\\w)\\s*','i');
       if(re.test(name)){unit=u.toLowerCase();name=name.replace(re,'').trim();break;}
     }
     return{qty:qty,unit:unit,name:name};

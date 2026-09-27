@@ -68,7 +68,7 @@ function extractRecipeFromPage() {
     const qm = s.match(/^((?:\d+\s+)?\d+\/\d+|\d+(?:\.\d+)?)/);
     if (qm) { qty = frac(qm[1]); name = s.slice(qm[1].length).trim(); }
     for (const u of UL) {
-      const re = new RegExp('^' + u.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + 's?\\.?\\s*', 'i');
+      const re = new RegExp('^' + u.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + 's?\\.?(?!\\w)\\s*', 'i');
       if (re.test(name)) { unit = u.toLowerCase(); name = name.replace(re,'').trim(); break; }
     }
     return { qty, unit, name: name.replace(/^[,;]\s*/,'') };

@@ -1,0 +1,257 @@
+[
+  {
+    "id": "muja4w9zbx4t",
+    "name": "Red Lentil Soup",
+    "servings": 4,
+    "category": "Soup",
+    "source": "https://cooking.nytimes.com/recipes/1016062-red-lentil-soup",
+    "notes": "This is a lentil soup that defies expectations of what lentil soup can be. Based on a Turkish lentil soup, mercimek corbasi, it is light, spicy and a bold red color (no murky brown here): a revelatory dish that takes less than an hour to make. The cooking is painless. Sauté onion and garlic in oil, then stir in tomato paste, cumin and chile powder and cook a few minutes more to intensify flavor. Add broth, water, red lentils (which cook faster than their green or black counterparts) and diced carrot, and simmer for 30 minutes. Purée half the mixture and return it to the pot for a soup that strikes the balance between chunky and pleasingly smooth. A hit of lemon juice adds an up note that offsets the deep cumin and chile flavors.",
+    "image": "https://static01.nyt.com/images/2019/01/17/dining/mc-red-lentil-soup/merlin_146234352_d7bc8486-b067-4cff-a4c0-7741f166fb60-videoSixteenByNineJumbo1600.jpg",
+    "ingredients": [
+      {
+        "qty": 3,
+        "unit": "",
+        "name": "olive oil, plus more for drizzling",
+        "original": "3 olive oil, plus more for drizzling"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "Large onion, chopped",
+        "original": "1 Large onion, chopped"
+      },
+      {
+        "qty": 2,
+        "unit": "",
+        "name": "Garlic cloves, minced",
+        "original": "2 Garlic cloves, minced"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "tomato paste",
+        "original": "1 tomato paste"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "ground cumin",
+        "original": "1 ground cumin"
+      },
+      {
+        "qty": null,
+        "unit": "",
+        "name": "Salt and black pepper",
+        "original": "Salt and black pepper"
+      },
+      {
+        "qty": null,
+        "unit": "pinch",
+        "name": "of chili powder or ground cayenne, plus more to taste",
+        "original": "pinch of chili powder or ground cayenne, plus more to taste"
+      },
+      {
+        "qty": 1,
+        "unit": "quart",
+        "name": "chicken or vegetable broth",
+        "original": "1 quart chicken or vegetable broth"
+      },
+      {
+        "qty": 1,
+        "unit": "cup",
+        "name": "red lentils",
+        "original": "1 cup red lentils"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "Large carrot, peeled and diced",
+        "original": "1 Large carrot, peeled and diced"
+      },
+      {
+        "qty": null,
+        "unit": "",
+        "name": "Juice of 1/2 lemon, more to taste",
+        "original": "Juice of 1/2 lemon, more to taste"
+      },
+      {
+        "qty": 3,
+        "unit": "",
+        "name": "chopped fresh cilantro",
+        "original": "3 chopped fresh cilantro"
+      }
+    ],
+    "instructions": [
+      "In a large pot, heat 3 tablespoons oil over high until hot and shimmering. Add onion and garlic, and sauté until golden, about 4 minutes.",
+      "Stir in tomato paste, cumin, ¼ teaspoons each salt and black pepper and the chili powder, and sauté for 2 minutes longer.",
+      "Add broth, 2 cups water, lentils and carrot. Bring to a simmer, then partly cover pot and turn heat to medium-low. Simmer until lentils are soft, about 30 minutes. Taste and add salt if necessary.",
+      "Using an immersion or regular blender or a food processor, purée half the soup, then add it back to pot. The soup should be somewhat chunky.",
+      "Reheat soup if necessary, then stir in lemon juice and cilantro. Serve soup drizzled with good olive oil and dusted lightly with chili powder, if desired."
+    ],
+    "createdAt": 1790480962151
+  },
+  {
+    "id": "muj9wduv5qij",
+    "name": "Chewy Chocolate Chip Cookies",
+    "servings": 16,
+    "category": "Dessert",
+    "source": "https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/print/70437/",
+    "notes": "These super soft and chewy chocolate chip cookies are the most popular cookie recipe on my website for good reason. Melted butter, more brown sugar than white sugar, cornstarch, and an extra egg yolk guarantee the absolute chewiest chocolate chip cookie texture. The cookie dough is slick and requires chilling prior to shaping the cookies. This recipe is also in my New York Times best-selling cookbook, Sally's Baking 101.",
+    "image": "https://sallysbakingaddiction.com/wp-content/uploads/2013/05/classic-chocolate-chip-cookies-225x225.jpg",
+    "ingredients": [
+      {
+        "qty": 2,
+        "unit": "",
+        "name": "and 1/4 cups (281g) all-purpose flour (spooned &amp; leveled)",
+        "original": "2 and 1/4 cups (281g) all-purpose flour (spooned &amp; leveled)"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "baking soda",
+        "original": "1 baking soda"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "and 1/2 teaspoons cornstarch*",
+        "original": "1 and 1/2 teaspoons cornstarch*"
+      },
+      {
+        "qty": 0.5,
+        "unit": "",
+        "name": "salt",
+        "original": "0.5 salt"
+      },
+      {
+        "qty": 0.75,
+        "unit": "cup",
+        "name": "(170g/12 Tbsp) unsalted butter, melted &amp; cooled for 5 minutes",
+        "original": "0.75 cup (170g/12 Tbsp) unsalted butter, melted &amp; cooled for 5 minutes"
+      },
+      {
+        "qty": 0.75,
+        "unit": "cup",
+        "name": "(150g) packed light or dark brown sugar",
+        "original": "0.75 cup (150g) packed light or dark brown sugar"
+      },
+      {
+        "qty": 0.5,
+        "unit": "cup",
+        "name": "(100g) granulated sugar",
+        "original": "0.5 cup (100g) granulated sugar"
+      },
+      {
+        "qty": 1,
+        "unit": "l",
+        "name": "arge egg + 1 egg yolk, at room temperature",
+        "original": "1 l arge egg + 1 egg yolk, at room temperature"
+      },
+      {
+        "qty": 2,
+        "unit": "",
+        "name": "pure vanilla extract",
+        "original": "2 pure vanilla extract"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "and 1/4 cups (225g) semi-sweet chocolate chips or chocolate chunks",
+        "original": "1 and 1/4 cups (225g) semi-sweet chocolate chips or chocolate chunks"
+      }
+    ],
+    "instructions": [
+      "In a large bowl, whisk the flour, baking soda, cornstarch, and salt together. Set aside.",
+      "In a medium bowl, whisk the melted butter, brown sugar, and granulated sugar together until no lumps remain. Whisk in the egg and egg yolk until combined, then whisk in the vanilla extract. The mixture will be thin. Pour into dry ingredients and mix together with a large spoon or spatula. The dough will be very soft, thick, and shiny. Fold in the chocolate chips. The chocolate chips may not stick to the dough because of the melted butter, but do your best to combine them.",
+      "Cover the dough tightly and refrigerate for at least 2 hours or up to 3 days. I highly recommend chilling the cookie dough overnight to prevent overspreading.",
+      "Preheat the oven to 325°F (163°C). Line large baking sheets with parchment paper or silicone baking mats. If the dough has chilled for longer than 2 hours, let it sit at room temperature for about 15 minutes.",
+      "Using a cookie scoop or Tablespoon measuring spoon, scoop the chilled cookie dough, about 3 scant Tablespoons (about 2 ounces, or 60g) of dough for XL cookies or 2 heaping Tablespoons (about 1.75 ounces, or 50g) of dough for medium-large cookies. Roll into a ball, then use your fingers to shape the cookie dough so that it&#8217;s taller rather than wide—almost like a cylinder. This helps the cookies bake up thicker. Repeat with remaining dough. Arrange the cookies 3 inches apart on the prepared baking sheets.",
+      "Bake the cookies for 13–14 minutes or until the edges are very lightly browned. The centers will look very soft, but the cookies will continue to set as they cool. Cool on the baking sheet for 10 minutes before transferring to a cooling rack to cool completely. While the cookies are still warm, I like to press a few more chocolate chips into the tops—this is optional and only for looks!",
+      "Store tightly covered at room temperature for up to 1 week."
+    ],
+    "createdAt": 1790480565031
+  },
+  {
+    "id": "muj9tdmgoeqf",
+    "name": "Lemony Shrimp and Bean Stew",
+    "servings": 4,
+    "category": "Mains",
+    "source": "https://cooking.nytimes.com/recipes/1020828-lemony-shrimp-and-bean-stew",
+    "notes": "With minimal prep and a quick cook time, this shrimp stew feels elegant for such an easy weeknight meal. You can also take the dish in a number of directions: Substitute the shrimp with an equal amount of flaky white fish or even seared scallops, or stretch the dish into a meal for six by stirring in some butter and serving over cooked spaghetti or rigatoni. A good glug of your best olive oil would also be welcome.",
+    "image": "https://static01.nyt.com/images/2020/08/09/dining/sl-shrimp-and-bean/sl-shrimp-and-bean-videoSixteenByNineJumbo1600-v2.jpg",
+    "ingredients": [
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "fresh lemon zest and 2 tablespoons juice",
+        "original": "1 fresh lemon zest and 2 tablespoons juice"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "sweet or smoked paprika",
+        "original": "1 sweet or smoked paprika"
+      },
+      {
+        "qty": 2,
+        "unit": "g",
+        "name": "arlic cloves, grated",
+        "original": "2 g arlic cloves, grated"
+      },
+      {
+        "qty": null,
+        "unit": "",
+        "name": "Kosher salt and black pepper",
+        "original": "Kosher salt and black pepper"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "peeled, deveined large shrimp (tails removed)",
+        "original": "1 peeled, deveined large shrimp (tails removed)"
+      },
+      {
+        "qty": 4,
+        "unit": "",
+        "name": "unsalted butter (1/2 stick)",
+        "original": "4 unsalted butter (1/2 stick)"
+      },
+      {
+        "qty": 2,
+        "unit": "l",
+        "name": "arge leeks, trimmed, then halved lengthwise, white and light green parts sliced crosswise 1/2-inch thick (or 1 large onion, minced)",
+        "original": "2 l arge leeks, trimmed, then halved lengthwise, white and light green parts sliced crosswise 1/2-inch thick (or 1 large onion, minced)"
+      },
+      {
+        "qty": 1,
+        "unit": "",
+        "name": "(15-ounce) can cannellini beans or other white beans, rinsed",
+        "original": "1 (15-ounce) can cannellini beans or other white beans, rinsed"
+      },
+      {
+        "qty": 2,
+        "unit": "cups",
+        "name": "chicken stock or vegetable stock",
+        "original": "2 cups chicken stock or vegetable stock"
+      },
+      {
+        "qty": 2,
+        "unit": "",
+        "name": "finely chopped fresh parsley (optional)",
+        "original": "2 finely chopped fresh parsley (optional)"
+      },
+      {
+        "qty": null,
+        "unit": "",
+        "name": "Toasted bread, for serving (optional)",
+        "original": "Toasted bread, for serving (optional)"
+      }
+    ],
+    "instructions": [
+      "Combine lemon zest, paprika, garlic, ¾ teaspoon salt and ¾ teaspoon pepper in a medium bowl. Add shrimp and toss to coat.",
+      "In a large pot, melt butter over medium-high heat. When butter is foaming, add shrimp and cook, stirring occasionally, until pink and starting to curl, 2 to 3 minutes. Using a slotted spoon, transfer shrimp to a plate; set aside.",
+      "Add leeks, season with salt and pepper, and cook over medium until leeks are soft and starting to brown on the edges, 4 to 5 minutes, stirring occasionally. Add beans and chicken broth and bring to a boil over high. Lower heat and simmer, 8 to 10 minutes. Stir in reserved shrimp and any juices from the plate, parsley and lemon juice, and season with salt and pepper. Serve with toasted bread."
+    ],
+    "createdAt": 1790480424760
+  }
+]

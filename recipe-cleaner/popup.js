@@ -36,7 +36,7 @@ function extractRecipeFromPage() {
     'tomato paste':[262,0],'miso':[250,0],
   };
   const UML = {
-    'cup':236.588,'cups':236.588,'tbsp':14.787,'tablespoon':14.787,'tablespoons':14.787,
+    'cup':236.588,'cups':236.588,'tbsp':14.787,'tbs':14.787,'tablespoon':14.787,'tablespoons':14.787,
     'tsp':4.929,'teaspoon':4.929,'teaspoons':4.929,
     'fl oz':29.574,'fluid oz':29.574,'fluid ounce':29.574,'fluid ounces':29.574,
     'pint':473.176,'pints':473.176,'pt':473.176,'quart':946.353,'quarts':946.353,
@@ -62,8 +62,8 @@ function extractRecipeFromPage() {
     const n = parseFloat(s); return isNaN(n) ? null : n;
   }
   function parseIng(s) {
-    s = (s||'').replace(/½/g,'1/2').replace(/¼/g,'1/4').replace(/¾/g,'3/4')
-      .replace(/⅓/g,'1/3').replace(/⅔/g,'2/3').replace(/⅛/g,'1/8').trim();
+    s = (s||'').replace(/(\d)½/g,'$1 1/2').replace(/½/g,'1/2').replace(/(\d)¼/g,'$1 1/4').replace(/¼/g,'1/4').replace(/(\d)¾/g,'$1 3/4').replace(/¾/g,'3/4')
+      .replace(/(\d)⅓/g,'$1 1/3').replace(/⅓/g,'1/3').replace(/(\d)⅔/g,'$1 2/3').replace(/⅔/g,'2/3').replace(/(\d)⅛/g,'$1 1/8').replace(/⅛/g,'1/8').trim();
     let qty = null, unit = '', name = s;
     const qm = s.match(/^((?:\d+\s+)?\d+\/\d+|\d+(?:\.\d+)?)/);
     if (qm) { qty = frac(qm[1]); name = s.slice(qm[1].length).trim(); }

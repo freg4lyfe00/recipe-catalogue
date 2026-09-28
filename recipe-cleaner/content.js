@@ -36,7 +36,7 @@
     'tomato paste':[262,0],'miso':[250,0],
   };
   const UML = {
-    'cup':236.588,'cups':236.588,'tbsp':14.787,'tablespoon':14.787,'tablespoons':14.787,
+    'cup':236.588,'cups':236.588,'tbsp':14.787,'tbs':14.787,'tablespoon':14.787,'tablespoons':14.787,
     'tsp':4.929,'teaspoon':4.929,'teaspoons':4.929,
     'fl oz':29.574,'fluid oz':29.574,'fluid ounce':29.574,'fluid ounces':29.574,
     'pint':473.176,'pints':473.176,'pt':473.176,
